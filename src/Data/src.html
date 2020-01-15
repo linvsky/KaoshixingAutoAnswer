@@ -1,0 +1,1299 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="google" content="notranslate" />
+    <script type="text/javascript" src="https://s3.kaoshixing.com/static/plugins/ksx_probe.js?v=a26b134282"></script>
+    <script type="text/javascript">
+        var opts = {};
+        
+        opts.userId = '11315094';
+        opts.companyId = '163983';
+        opts.companyName = '因美纳';
+        opts.rightsGrade = '4';
+        
+        //添加gio
+        ksxProbe.gioInit(opts);
+        //添加tingyun
+        ksxProbe.tingyun();
+    </script>
+    <title>知识大比武---销售技术支持团队</title>
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge,chrome=1" />
+    
+        <link rel="shortcut icon" href="https://s0.kaoshixing.com/static/base/images/new_logo.ico" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="renderer" content="webkit">
+    <meta name="referrer" content="no-referrer"/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="https://s1.kaoshixing.com/static/plugins/bootstrap/css/bootstrap.min.css?v=9ed71d952357">
+    
+    <link rel="stylesheet" type="text/css" href="https://s1.kaoshixing.com/static/plugins/IconFont/css/styles.min.css?v=155b8a0f0957">
+    <link rel="stylesheet" type="text/css" href="https://s4.kaoshixing.com/static/plugins/examFont/style.css?v=14463eb1f057">
+    <link rel="stylesheet" type="text/css" href="https://s4.kaoshixing.com/static/base/css/base.css?v=af1f18f7bb57">
+    
+    <link rel="stylesheet" type="text/css" href="https://s2.kaoshixing.com/static/exam/css/exam_style.css?v=f9bcd2e44b57">
+    <style>
+        .loading-exam-fail{
+            display: none;
+        }
+        .loading-exam-fail span:nth-child(1){
+            display: block;
+            font-size: 20px;
+            color: #27274A;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .loading-exam-fail span:nth-child(2){
+            display: block;
+            font-size: 14px;
+            color: #656577;
+            text-align: center;
+        }
+        .exam-commit-notice{
+            position: absolute;
+            top: 100px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            z-index: 2000;
+            width: 340px;
+            border-radius: 10px;
+            background: rgba(0,0,0,.5);
+            text-align: center;
+            line-height: 36px;
+            color: #fff;
+        }
+        .exam-show-notice{
+            padding: 0 !important;
+            line-height: 56px !important;
+        }
+        .exam-error-notice{
+            padding: 12px 0;
+        }
+        .exam-error-num{
+            position: relative;
+            width: 80px;
+            height: 42px;
+            border-radius: 52px;
+            line-height: 40px;
+            margin: 0 auto;
+            text-align: left;
+            padding-left: 20px;
+            box-sizing: border-box;
+            background-image: url("https://s1.kaoshixing.com/static/exam/images/competition/p_img_heart_de.png");
+            background-size: 100% 100%;
+        }
+        .sweat-shake{
+            animation: move .1s linear 5;
+        }
+        .menu-item-next .icon-m_prompt_correct1{
+            display: none;
+            font-size: 24px;
+            color: #1DC88C;
+        }
+        .menu-item-next .icon-m_prompt_error1{
+            display: none;
+            font-size: 24px;
+            color: #FF4B50;
+        }
+        .exam-shake-left{
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 70px;
+        }
+        .exam-shake-right{
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 70px;
+        }
+        @keyframes move {
+            0%,50%,100%{
+                transform: translateX(0);
+            }
+            25%{
+                transform: translateX(-5px);
+            }
+            75%{
+                transform: translateX(5px);
+            }
+        }
+        .submit-notice{
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.6);
+            z-index: 2001;
+        }
+        .submit-notice .notice-text{
+            display: inline-block;
+            width: 450px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            color: #fff;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background: rgba(0,0,0,.5);
+            border-radius: 6px;
+        }
+    /*提示*/
+        .set_success{
+            margin-right:10px;
+        }
+        /*ksx-success*/
+        .ksx-success{
+            width:300px;
+            height:40px;
+            margin-top: 20px;
+            display: none;
+            position: absolute;
+            left: calc(50% - 150px);
+            z-index: 2000;
+        }
+        .ksx-success .text{
+            font-family: PingFangSC-Medium;
+            font-size: 14px;
+            color: #1DC88C;
+            background: rgba(29,200,140,0.10);
+            border: 1px solid rgba(29,200,140,0.20);
+            border-radius: 4px;
+            width:100%;
+            height:100%;
+            line-height: 38px;
+            text-align: center;
+        }
+        /*ksx-error*/
+        .ksx-error{
+            width:300px;
+            height:40px;
+            margin-top: 20px;
+            display: none;
+            position: absolute;
+            left: calc(50% - 150px);
+            z-index: 2000;
+        }
+        .ksx-error .text{
+            font-family: PingFangSC-Medium;
+            font-size: 14px;
+            color: #FF4B50;
+            background: rgba(255,75,80,0.10);
+            border: 1px solid rgba(255,75,80,0.20);
+            border-radius: 4px;
+            width:100%;
+            height:100%;
+            line-height: 38px;
+            text-align: center;
+        }
+        /*ksx-warn*/
+        .ksx-warn{
+            width:300px;
+            height:40px;
+            margin-top: 20px;
+            display: none;
+            position: absolute;
+            left: calc(50% - 150px);
+            z-index: 2000;
+        }
+        .ksx-warn .text{
+            font-family: PingFangSC-Medium;
+            font-size: 14px;
+            color: #FE8545;
+            background: rgba(254,133,69,0.10);
+            border: 1px solid rgba(254,133,69,0.20);
+            border-radius: 4px;
+            width:100%;
+            height:100%;
+            line-height: 38px;
+            text-align: center;
+        }
+        /*加粗下划、加粗删除线等没有加粗效果的修复*/
+        u,i,strike,font{
+            font-weight:inherit; /*加粗样式被覆盖，将这些标签的字粗改成继承，如果有父元素有b则继承加粗样式*/
+        }
+
+        /*答题卡优化*/
+        #answercardFoldBtn{
+            display:none;
+        }
+        .numberCardModal{
+            left: 90px;
+        }
+        .nav-wrapper.nav-wrapper-l{
+            right: 90px;
+            bottom:20px;
+        }
+
+        .main{
+            padding: 90px 230px 80px 350px;
+        }
+        .main .body-wrapper
+        {
+            width: calc(100% - 580px);
+            left: 350px;
+        }
+        .modal-number-card .modal-body .card-content .box-list .box.s1 .iconBox{
+            border: 1px solid #DCDFE6;
+            color:#DCDFE6;
+        }
+        .insert-box .iconBox{
+            font-size:1px;
+        }
+
+        .modal-number-card .modal-header {
+            padding: 10px;
+        }
+        .numberCardModal .modal-number-card .modal-content .title{
+            margin-bottom: 0;
+        }
+        .numberCardModal .modal-number-card .modal-content .title .title_content{
+            margin-left: 14px;
+            font-weight: 600;
+            color: #27274A;
+        }
+        .modal-number-card .modal-body .card-content .card-content-title {
+            font-size: 12px;
+            color: #27274A;
+            font-weight: 600;
+        }
+        .modal-number-card .modal-body .card-content .box-list {
+            padding-bottom: 0;
+        }
+        .modal-number-card .iconBox{
+            font-weight: 600;
+        }
+        /*无答题卡的情况*/
+        .main.no-numcard{
+            padding: 90px 230px 80px 90px;
+        }
+        .main.no-numcard .body-wrapper {
+            width: calc(100% - 320px);
+            left: 90px;
+        }
+    </style>
+    
+    <link rel="stylesheet" href="https://s2.kaoshixing.com/static/plugins/wangEditorExam/css/wangEditor.min.css?v=903737aa9357">
+</head>
+<body>
+<!-- loading -->
+<div class="spinner-wrapper" id="spinnerLoading">
+    <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+
+<!--提示弹窗-->
+    <div class="ksx-success">
+        <div class="text"><i class="icon-a_success set_success"></i><label></label></div>
+    </div>
+    <div class="ksx-error">
+        <div class="text"><i class="icon-m_exam_error set_success"></i><label></label></div>
+    </div>
+    <div class="ksx-warn">
+        <div class="text"><i class="icon-a_warning set_success"></i><label></label></div>
+    </div>
+    <div class="loading-box hidden pc-loading-box" role="dialog">
+        <div class="loading-inner">
+            <div class="loading-title">
+
+               <p class="loading-exam-success">交卷中</p>
+
+                <p class="loading-exam-fail">
+                    <span>
+                        闯关失败
+                    </span>
+                    <span>
+                        已达错题上限，自动交卷中…
+                    </span>
+                </p>
+
+            </div>
+            <div class="loading-line">
+                <p class="loading-num">
+                    <span>0%</span>
+                </p>
+                <div class="loading-bg">
+                    <span class="loading-develop"></span>
+                </div>
+            </div>
+            <p class="loading-label">正在提交答案...</p>
+        </div>
+    </div>
+    <div class="submit-notice">
+        <div class="notice-text"><span class="notice-time">3</span>s后即将进行强制交卷，如有疑问请联系相关考试负责人</div>
+    </div>
+    
+    <div class="main exam-mode exam-onebyone-mode no-numcard">
+        <img class="exam-shake-left" src="https://s3.kaoshixing.com/static/exam/images/competition/Rectangle_left.png" alt="">
+        <div class="header-wrapper">
+                
+            <div class="logo-wrapper">
+                <a href="/exam" title="logo">
+                    <img class="icon-logo logo-ksx" src="https://cdnoss.kaoshixing.com/ksx_prod/163983/logo/163983/20191024/1571888194764.png" />
+                </a>
+            </div>
+
+
+            <div class="exam-name ellipsis">知识大比武---销售技术支持团队</div>
+            <div class="user ellipsis">
+                <i class="icon icon-a_nav_my"></i>
+                    唐顺江
+            </div>
+
+            <a type="button" class="btn btn-default logout" id="logoutBtn">
+                <i class="icon icon-a_btn_sign_out btn-icon-left"></i>
+                退出
+            </a>
+
+        </div>
+
+        <div class="body-wrapper">
+            <div class="body paper">
+                <div class="questions">
+                    <div class="questions-title"></div>
+                    <div class="questions-content clearfix">
+                        <div class="question-content-wrapper question-content-wrapper-l">
+                            <div class="question-content question-content-l">
+                                <div class="exam-question-wrapper">
+                                    <span class="question-index ellipsis" id="questionsNum">1</span>
+                                    <div class="exam-question"></div>
+                                </div>
+                                <div class="additional-bar">
+                                    <div class="icon-operation icon-mark" id="markQuestion">
+                                        <i class="icon icon-primary icon-p_exam_tag_de"></i>
+                                        <span class="icon-label">标记本题</span>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-content-wrapper question-content-wrapper-r">
+                            <div class="question-content question-content-r">
+                                
+                                <div class="exam-question hidden"></div>
+                                
+                                <div class="answers" questionsId=""></div>
+                                
+                                <div class="analysis hidden">
+                                    <div class="analysis-row">
+                                        <div class="analysis-title">正确答案</div>
+                                        <div class="analysis-content question-ans-right"></div>
+                                    </div>
+                                    <div class="analysis-row">
+                                        <div class="analysis-title">解释说明</div>
+                                        <div class="analysis-content question-analysis display-block"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+
+        <div class="nav-wrapper nav-wrapper-l">
+            <div class="nav nav-status nav-operation">
+                <ul class="menu-items">
+                    
+                            <li class="menu-item menu-item-time">
+                                <div class="item-label">本题剩余时间</div>
+                                <div class="item-data" id="remainingTime"></div>
+                            </li>
+                        
+                    <li class="menu-item menu-item-process">
+                        <div class="item-label">当前进度</div>
+                        <div class="item-data">
+                            <span id="commitCount">0</span>/<span id="totalCount">0</span>
+                        </div>
+                        <div class="item-process">
+                            <div class="item-process-bar" id="commitProcess"></div>
+                        </div>
+                    </li>
+                    <li class="menu-item menu-item-fontsize">
+                        <span class="item-icon fontsize-minus">－</span>
+                        <span class="item-label">字号</span>
+                        <span class="item-icon fontsize-plus">＋</span>
+                    </li>
+                    <li class="menu-item menu-item-lang" id="switchLangBtn">
+                        <i class="icon item-icon icon-a_landing_english"></i>
+                        <span class="item-label">English</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav nav-bottom nav-operation">
+                
+                <ul class="menu-items">
+                    <li class="menu-item menu-item-prev disabled hidden" id="preQuestions">
+                        <span class="item-label">上一题</span>
+                    </li>
+                    <li class="menu-item menu-item-next " id="nextQuestions" >
+                       <span class="item-label">下一题</span>
+                       <span class="icon icon-m_prompt_correct1"></span>
+                       <span class="icon icon-m_prompt_error1"></span>
+                    </li>
+                </ul>
+            </div>
+
+            <button class="btn btn-primary btn-nav btn-bottom" id="endExamBtn">提交</button>
+        </div>
+
+        <img class="exam-shake-right" src="https://s2.kaoshixing.com/static/exam/images/competition/Rectangle_right.png" alt="">
+    </div>
+    
+    <input type="hidden" class="had-save-mark" /><div class="control-bar control-ongoing animate" id="webCamBar" data-toggle="tooltip" data-placement="top" data-container="body"
+             title="展开">
+            <div class="fold_btn"><i class="icon icons8-icon-3"></i></div>
+            <div class="title_border"></div>
+            实时监控中
+        </div>
+
+        
+        <div class="force-alert" id="webcamAlert">
+            <div class="alert alert-ksx" role="alert">请打开摄像头，打开后方可作答，<a class="text-primary webcam-refresh" href="/exam/exam_start/392980">刷新</a></div>
+        </div>
+
+        
+        <div id="webcam" class="web-camera-wrapper animate">
+            <i class="icon icons8-icon" id="webCamFold" data-toggle="tooltip" data-placement="top" data-container="body"
+               title="收起"></i>
+        </div>
+
+        <form action="/exam/capture/" method="post" target="capture_iframe"
+              id="captureForm" class="hidden">
+            <iframe id="capture_iframe" name="capture_iframe" class="hidden"></iframe>
+            <input type="text" name="examResultsId" value="25428635" />
+            <input type="text" name="questionId" />
+        </form>
+    
+        <div class="modal fade" id="blurCountModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-pc-message" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-title">
+                            已离开<span id="blurCount">0</span>次，超过3次将自动交卷！
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-gray" data-dismiss="modal">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="alert alert-ksx hidden" role="alert" id="timeLimitAlert">
+            若无操作，<span id="limitTimeCount"></span>秒后自动交卷
+        </div>
+    
+    <div class="alert alert-ksx hidden" role="alert" id="minTimeLimitAlert">
+        <span id="limitMinTimeCount">4</span>分钟后才能交卷
+    </div>
+
+    
+    <div class="modal fade ksx" id="timeResetModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-pc-message modal-time-reset" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-title">
+                        您的交卷时间已被修改为
+                    </div>
+                    <div class="delay-time"></div>
+                    <div class="tip">请及时调整答题进度</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-gray" data-dismiss="modal">知道了</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="numberCardModal hidden" id="numberCardModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-number-card" role="document">
+            <div class="fold_btn" id="answercardFoldBtn"><i class="icon icons8-icon"  data-toggle="tooltip" data-placement="top" data-container="body" title="" data-original-title="收起"></i></div>
+            <div class="open_btn" id="answercardOpenBtn"><i class="icon icons8-icon-3"  data-toggle="tooltip" data-placement="top" data-container="body" title="" data-original-title="展开"></i></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                </div>
+                <div class="modal-body">
+                    <div class="title">
+                        <div class="title_border"></div>
+                        <div class="title_content">答题卡</div>
+                    </div>
+                    
+
+                    <div class="card-content-list">
+                    
+                            <div class="card-content">
+                                
+                                        <div class="card-content-title">基础单选题(共40题)</div>
+                                        
+
+
+                                <div class="box-list">
+                                    
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5dedbe9584030d34f3ca0d46" href="#5dedbe9584030d34f3ca0d46"
+                                                           questionsId="5dedbe9584030d34f3ca0d46" num="questions_5dedbe9584030d34f3ca0d46" perScore="1.0" timeInterval="30">1</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de7556984030d60752298f3" href="#5de7556984030d60752298f3"
+                                                           questionsId="5de7556984030d60752298f3" num="questions_5de7556984030d60752298f3" perScore="1.0" timeInterval="30">2</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5dedbe9584030d34f3ca0d45" href="#5dedbe9584030d34f3ca0d45"
+                                                           questionsId="5dedbe9584030d34f3ca0d45" num="questions_5dedbe9584030d34f3ca0d45" perScore="1.0" timeInterval="30">3</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de7708557aad22ffb1b57f9" href="#5de7708557aad22ffb1b57f9"
+                                                           questionsId="5de7708557aad22ffb1b57f9" num="questions_5de7708557aad22ffb1b57f9" perScore="1.0" timeInterval="30">4</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de7681384030d6075229def" href="#5de7681384030d6075229def"
+                                                           questionsId="5de7681384030d6075229def" num="questions_5de7681384030d6075229def" perScore="1.0" timeInterval="30">5</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de7708557aad22ffb1b57f7" href="#5de7708557aad22ffb1b57f7"
+                                                           questionsId="5de7708557aad22ffb1b57f7" num="questions_5de7708557aad22ffb1b57f7" perScore="1.0" timeInterval="30">6</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de7556984030d60752298f7" href="#5de7556984030d60752298f7"
+                                                           questionsId="5de7556984030d60752298f7" num="questions_5de7556984030d60752298f7" perScore="1.0" timeInterval="30">7</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de7681384030d6075229deb" href="#5de7681384030d6075229deb"
+                                                           questionsId="5de7681384030d6075229deb" num="questions_5de7681384030d6075229deb" perScore="1.0" timeInterval="30">8</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de6188157aad22ffb1b02f3" href="#5de6188157aad22ffb1b02f3"
+                                                           questionsId="5de6188157aad22ffb1b02f3" num="questions_5de6188157aad22ffb1b02f3" perScore="1.0" timeInterval="30">9</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de7599f57aad22ffb1b49d2" href="#5de7599f57aad22ffb1b49d2"
+                                                           questionsId="5de7599f57aad22ffb1b49d2" num="questions_5de7599f57aad22ffb1b49d2" perScore="1.0" timeInterval="30">10</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de7708557aad22ffb1b580c" href="#5de7708557aad22ffb1b580c"
+                                                           questionsId="5de7708557aad22ffb1b580c" num="questions_5de7708557aad22ffb1b580c" perScore="1.0" timeInterval="30">11</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5dedf08084030d0d4b2ef0c3" href="#5dedf08084030d0d4b2ef0c3"
+                                                           questionsId="5dedf08084030d0d4b2ef0c3" num="questions_5dedf08084030d0d4b2ef0c3" perScore="1.0" timeInterval="30">12</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de8ce6e84030d607522ec82" href="#5de8ce6e84030d607522ec82"
+                                                           questionsId="5de8ce6e84030d607522ec82" num="questions_5de8ce6e84030d607522ec82" perScore="1.0" timeInterval="30">13</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5dedf08084030d0d4b2ef0c5" href="#5dedf08084030d0d4b2ef0c5"
+                                                           questionsId="5dedf08084030d0d4b2ef0c5" num="questions_5dedf08084030d0d4b2ef0c5" perScore="1.0" timeInterval="30">14</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de7708557aad22ffb1b57fb" href="#5de7708557aad22ffb1b57fb"
+                                                           questionsId="5de7708557aad22ffb1b57fb" num="questions_5de7708557aad22ffb1b57fb" perScore="1.0" timeInterval="30">15</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de75bd857aad22ffb1b49e5" href="#5de75bd857aad22ffb1b49e5"
+                                                           questionsId="5de75bd857aad22ffb1b49e5" num="questions_5de75bd857aad22ffb1b49e5" perScore="1.0" timeInterval="30">16</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de75bd857aad22ffb1b49e8" href="#5de75bd857aad22ffb1b49e8"
+                                                           questionsId="5de75bd857aad22ffb1b49e8" num="questions_5de75bd857aad22ffb1b49e8" perScore="1.0" timeInterval="30">17</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5dedf08084030d0d4b2ef0c8" href="#5dedf08084030d0d4b2ef0c8"
+                                                           questionsId="5dedf08084030d0d4b2ef0c8" num="questions_5dedf08084030d0d4b2ef0c8" perScore="1.0" timeInterval="30">18</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de75bd857aad22ffb1b49e7" href="#5de75bd857aad22ffb1b49e7"
+                                                           questionsId="5de75bd857aad22ffb1b49e7" num="questions_5de75bd857aad22ffb1b49e7" perScore="1.0" timeInterval="30">19</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de7708557aad22ffb1b57fd" href="#5de7708557aad22ffb1b57fd"
+                                                           questionsId="5de7708557aad22ffb1b57fd" num="questions_5de7708557aad22ffb1b57fd" perScore="1.0" timeInterval="30">20</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de7556984030d60752298fc" href="#5de7556984030d60752298fc"
+                                                           questionsId="5de7556984030d60752298fc" num="questions_5de7556984030d60752298fc" perScore="1.0" timeInterval="30">21</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de7556984030d60752298fa" href="#5de7556984030d60752298fa"
+                                                           questionsId="5de7556984030d60752298fa" num="questions_5de7556984030d60752298fa" perScore="1.0" timeInterval="30">22</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5dedf08084030d0d4b2ef0d1" href="#5dedf08084030d0d4b2ef0d1"
+                                                           questionsId="5dedf08084030d0d4b2ef0d1" num="questions_5dedf08084030d0d4b2ef0d1" perScore="1.0" timeInterval="30">23</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5dedbe9584030d34f3ca0d52" href="#5dedbe9584030d34f3ca0d52"
+                                                           questionsId="5dedbe9584030d34f3ca0d52" num="questions_5dedbe9584030d34f3ca0d52" perScore="1.0" timeInterval="30">24</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de7708557aad22ffb1b5803" href="#5de7708557aad22ffb1b5803"
+                                                           questionsId="5de7708557aad22ffb1b5803" num="questions_5de7708557aad22ffb1b5803" perScore="1.0" timeInterval="30">25</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de6289184030d6075224f6a" href="#5de6289184030d6075224f6a"
+                                                           questionsId="5de6289184030d6075224f6a" num="questions_5de6289184030d6075224f6a" perScore="1.0" timeInterval="30">26</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5dedf03884030d0d4b2ef013" href="#5dedf03884030d0d4b2ef013"
+                                                           questionsId="5dedf03884030d0d4b2ef013" num="questions_5dedf03884030d0d4b2ef013" perScore="1.0" timeInterval="30">27</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de6289184030d6075224f6c" href="#5de6289184030d6075224f6c"
+                                                           questionsId="5de6289184030d6075224f6c" num="questions_5de6289184030d6075224f6c" perScore="1.0" timeInterval="30">28</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de617e257aad22ffb1b024f" href="#5de617e257aad22ffb1b024f"
+                                                           questionsId="5de617e257aad22ffb1b024f" num="questions_5de617e257aad22ffb1b024f" perScore="1.0" timeInterval="30">29</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de8d7d757aad22ffb1bca8d" href="#5de8d7d757aad22ffb1bca8d"
+                                                           questionsId="5de8d7d757aad22ffb1bca8d" num="questions_5de8d7d757aad22ffb1bca8d" perScore="1.0" timeInterval="30">30</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5dedf03884030d0d4b2ef019" href="#5dedf03884030d0d4b2ef019"
+                                                           questionsId="5dedf03884030d0d4b2ef019" num="questions_5dedf03884030d0d4b2ef019" perScore="1.0" timeInterval="30">31</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5dea287557aad22ffb1c080d" href="#5dea287557aad22ffb1c080d"
+                                                           questionsId="5dea287557aad22ffb1c080d" num="questions_5dea287557aad22ffb1c080d" perScore="1.0" timeInterval="30">32</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5dedf08084030d0d4b2ef0cd" href="#5dedf08084030d0d4b2ef0cd"
+                                                           questionsId="5dedf08084030d0d4b2ef0cd" num="questions_5dedf08084030d0d4b2ef0cd" perScore="1.0" timeInterval="30">33</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de7619d84030d6075229aff" href="#5de7619d84030d6075229aff"
+                                                           questionsId="5de7619d84030d6075229aff" num="questions_5de7619d84030d6075229aff" perScore="1.0" timeInterval="30">34</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de6289184030d6075224f68" href="#5de6289184030d6075224f68"
+                                                           questionsId="5de6289184030d6075224f68" num="questions_5de6289184030d6075224f68" perScore="1.0" timeInterval="30">35</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de617e257aad22ffb1b0250" href="#5de617e257aad22ffb1b0250"
+                                                           questionsId="5de617e257aad22ffb1b0250" num="questions_5de617e257aad22ffb1b0250" perScore="1.0" timeInterval="30">36</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de7681384030d6075229de1" href="#5de7681384030d6075229de1"
+                                                           questionsId="5de7681384030d6075229de1" num="questions_5de7681384030d6075229de1" perScore="1.0" timeInterval="30">37</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de7556984030d60752298f8" href="#5de7556984030d60752298f8"
+                                                           questionsId="5de7556984030d60752298f8" num="questions_5de7556984030d60752298f8" perScore="1.0" timeInterval="30">38</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de7708557aad22ffb1b5806" href="#5de7708557aad22ffb1b5806"
+                                                           questionsId="5de7708557aad22ffb1b5806" num="questions_5de7708557aad22ffb1b5806" perScore="1.0" timeInterval="30">39</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de7619d84030d6075229afc" href="#5de7619d84030d6075229afc"
+                                                           questionsId="5de7619d84030d6075229afc" num="questions_5de7619d84030d6075229afc" perScore="1.0" timeInterval="30">40</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+                                </div>
+                                <div class="split"></div>
+                            </div>
+                        
+                            <div class="card-content">
+                                
+                                        <div class="card-content-title">基础多选题(共15题)</div>
+                                        
+
+
+                                <div class="box-list">
+                                    
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5dedf08084030d0d4b2ef0d3" href="#5dedf08084030d0d4b2ef0d3"
+                                                           questionsId="5dedf08084030d0d4b2ef0d3" num="questions_5dedf08084030d0d4b2ef0d3" perScore="2.0" timeInterval="40">1</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de8ce6e84030d607522ec7f" href="#5de8ce6e84030d607522ec7f"
+                                                           questionsId="5de8ce6e84030d607522ec7f" num="questions_5de8ce6e84030d607522ec7f" perScore="2.0" timeInterval="40">2</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5dea287557aad22ffb1c0802" href="#5dea287557aad22ffb1c0802"
+                                                           questionsId="5dea287557aad22ffb1c0802" num="questions_5dea287557aad22ffb1c0802" perScore="2.0" timeInterval="40">3</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5dedf03884030d0d4b2ef015" href="#5dedf03884030d0d4b2ef015"
+                                                           questionsId="5dedf03884030d0d4b2ef015" num="questions_5dedf03884030d0d4b2ef015" perScore="2.0" timeInterval="40">4</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5dedefd757aad26f603da169" href="#5dedefd757aad26f603da169"
+                                                           questionsId="5dedefd757aad26f603da169" num="questions_5dedefd757aad26f603da169" perScore="2.0" timeInterval="40">5</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de8d7d757aad22ffb1bca83" href="#5de8d7d757aad22ffb1bca83"
+                                                           questionsId="5de8d7d757aad22ffb1bca83" num="questions_5de8d7d757aad22ffb1bca83" perScore="2.0" timeInterval="40">6</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5dea287557aad22ffb1c0809" href="#5dea287557aad22ffb1c0809"
+                                                           questionsId="5dea287557aad22ffb1c0809" num="questions_5dea287557aad22ffb1c0809" perScore="2.0" timeInterval="40">7</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de8ce6e84030d607522ec80" href="#5de8ce6e84030d607522ec80"
+                                                           questionsId="5de8ce6e84030d607522ec80" num="questions_5de8ce6e84030d607522ec80" perScore="2.0" timeInterval="40">8</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5dedefd757aad26f603da168" href="#5dedefd757aad26f603da168"
+                                                           questionsId="5dedefd757aad26f603da168" num="questions_5dedefd757aad26f603da168" perScore="2.0" timeInterval="40">9</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5dea287557aad22ffb1c0807" href="#5dea287557aad22ffb1c0807"
+                                                           questionsId="5dea287557aad22ffb1c0807" num="questions_5dea287557aad22ffb1c0807" perScore="2.0" timeInterval="40">10</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5dea287557aad22ffb1c0808" href="#5dea287557aad22ffb1c0808"
+                                                           questionsId="5dea287557aad22ffb1c0808" num="questions_5dea287557aad22ffb1c0808" perScore="2.0" timeInterval="40">11</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5dedefd757aad26f603da167" href="#5dedefd757aad26f603da167"
+                                                           questionsId="5dedefd757aad26f603da167" num="questions_5dedefd757aad26f603da167" perScore="2.0" timeInterval="40">12</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5dedf03884030d0d4b2ef01c" href="#5dedf03884030d0d4b2ef01c"
+                                                           questionsId="5dedf03884030d0d4b2ef01c" num="questions_5dedf03884030d0d4b2ef01c" perScore="2.0" timeInterval="40">13</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de8d7d757aad22ffb1bca88" href="#5de8d7d757aad22ffb1bca88"
+                                                           questionsId="5de8d7d757aad22ffb1bca88" num="questions_5de8d7d757aad22ffb1bca88" perScore="2.0" timeInterval="40">14</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5dedf08084030d0d4b2ef0cf" href="#5dedf08084030d0d4b2ef0cf"
+                                                           questionsId="5dedf08084030d0d4b2ef0cf" num="questions_5dedf08084030d0d4b2ef0cf" perScore="2.0" timeInterval="40">15</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+                                </div>
+                                <div class="split"></div>
+                            </div>
+                        
+                            <div class="card-content">
+                                
+                                        <div class="card-content-title">单选题(共15题)</div>
+                                        
+
+
+                                <div class="box-list">
+                                    
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de8acc557aad22ffb1bacdb" href="#5de8acc557aad22ffb1bacdb"
+                                                           questionsId="5de8acc557aad22ffb1bacdb" num="questions_5de8acc557aad22ffb1bacdb" perScore="1.0" timeInterval="45">1</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de8acc557aad22ffb1bacd6" href="#5de8acc557aad22ffb1bacd6"
+                                                           questionsId="5de8acc557aad22ffb1bacd6" num="questions_5de8acc557aad22ffb1bacd6" perScore="1.0" timeInterval="45">2</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de77b6a84030d607522a6ee" href="#5de77b6a84030d607522a6ee"
+                                                           questionsId="5de77b6a84030d607522a6ee" num="questions_5de77b6a84030d607522a6ee" perScore="1.0" timeInterval="45">3</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de77b6a84030d607522a708" href="#5de77b6a84030d607522a708"
+                                                           questionsId="5de77b6a84030d607522a708" num="questions_5de77b6a84030d607522a708" perScore="1.0" timeInterval="45">4</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de782e857aad22ffb1b6207" href="#5de782e857aad22ffb1b6207"
+                                                           questionsId="5de782e857aad22ffb1b6207" num="questions_5de782e857aad22ffb1b6207" perScore="1.0" timeInterval="45">5</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de600b884030d607522423d" href="#5de600b884030d607522423d"
+                                                           questionsId="5de600b884030d607522423d" num="questions_5de600b884030d607522423d" perScore="1.0" timeInterval="45">6</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de7681384030d6075229de2" href="#5de7681384030d6075229de2"
+                                                           questionsId="5de7681384030d6075229de2" num="questions_5de7681384030d6075229de2" perScore="1.0" timeInterval="45">7</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de6289184030d6075224f66" href="#5de6289184030d6075224f66"
+                                                           questionsId="5de6289184030d6075224f66" num="questions_5de6289184030d6075224f66" perScore="1.0" timeInterval="45">8</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de6289184030d6075224f65" href="#5de6289184030d6075224f65"
+                                                           questionsId="5de6289184030d6075224f65" num="questions_5de6289184030d6075224f65" perScore="1.0" timeInterval="45">9</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de7556984030d60752298f5" href="#5de7556984030d60752298f5"
+                                                           questionsId="5de7556984030d60752298f5" num="questions_5de7556984030d60752298f5" perScore="1.0" timeInterval="45">10</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de8c44584030d607522e097" href="#5de8c44584030d607522e097"
+                                                           questionsId="5de8c44584030d607522e097" num="questions_5de8c44584030d607522e097" perScore="1.0" timeInterval="45">11</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de8c44584030d607522e09a" href="#5de8c44584030d607522e09a"
+                                                           questionsId="5de8c44584030d607522e09a" num="questions_5de8c44584030d607522e09a" perScore="1.0" timeInterval="45">12</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de8c44584030d607522e0a6" href="#5de8c44584030d607522e0a6"
+                                                           questionsId="5de8c44584030d607522e0a6" num="questions_5de8c44584030d607522e0a6" perScore="1.0" timeInterval="45">13</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de8c44584030d607522e095" href="#5de8c44584030d607522e095"
+                                                           questionsId="5de8c44584030d607522e095" num="questions_5de8c44584030d607522e095" perScore="1.0" timeInterval="45">14</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de8c44584030d607522e09d" href="#5de8c44584030d607522e09d"
+                                                           questionsId="5de8c44584030d607522e09d" num="questions_5de8c44584030d607522e09d" perScore="1.0" timeInterval="45">15</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+                                </div>
+                                <div class="split"></div>
+                            </div>
+                        
+                            <div class="card-content">
+                                
+                                        <div class="card-content-title">多选题(共5题)</div>
+                                        
+
+
+                                <div class="box-list">
+                                    
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de77b6a84030d607522a6f1" href="#5de77b6a84030d607522a6f1"
+                                                           questionsId="5de77b6a84030d607522a6f1" num="questions_5de77b6a84030d607522a6f1" perScore="3.0" timeInterval="45">1</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de782e857aad22ffb1b620b" href="#5de782e857aad22ffb1b620b"
+                                                           questionsId="5de782e857aad22ffb1b620b" num="questions_5de782e857aad22ffb1b620b" perScore="3.0" timeInterval="45">2</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de77b6a84030d607522a704" href="#5de77b6a84030d607522a704"
+                                                           questionsId="5de77b6a84030d607522a704" num="questions_5de77b6a84030d607522a704" perScore="3.0" timeInterval="45">3</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de8c44584030d607522e085" href="#5de8c44584030d607522e085"
+                                                           questionsId="5de8c44584030d607522e085" num="questions_5de8c44584030d607522e085" perScore="3.0" timeInterval="45">4</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+
+                                                    <div class="box normal-box question_cbox s1">
+                                                        <a class="iconBox questions_5de8c44584030d607522e07c" href="#5de8c44584030d607522e07c"
+                                                           questionsId="5de8c44584030d607522e07c" num="questions_5de8c44584030d607522e07c" perScore="3.0" timeInterval="45">5</a>
+                                                        <span class="box icon-box question_marked"></span>
+                                                    </div>
+                                                
+                                </div>
+                                <div class="split"></div>
+                            </div>
+                        
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <span class="box icon-box s2"></span>
+                    <span class="icon-label">已答</span>
+                    <span class="box icon-box s1"></span>
+                    <span class="icon-label">未答</span>
+                    <span class="box icon-box marked"></span>
+                    <span class="icon-label">标记</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="modal fade" id="endExamModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-pc-message" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-title"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-gray" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-danger" id="confirmEndExamBtn">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="modal fade" id="resultInquireModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-pc-message" role="document">
+            <div class="modal-content">
+                <div class="modal-header"></div>
+                <div class="modal-body">
+                    <div class="modal-title">交卷中，请耐心等待...</div>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="alertModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-pc-message" role="document">
+            <div class="modal-content">
+                <div class="modal-header"></div>
+                <div class="modal-body">
+                    <div class="modal-title">本场考试已开启防切屏限制，<br /> 切换页面3次后将进行强制交卷，<br /> 请勿切屏及刷新页面！</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-gray" data-dismiss="modal">知道了</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-pc-message modal-logout" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-title">您是否要退出登录？</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-gray" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-danger" id="confirmLogoutBtn">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="https://s3.kaoshixing.com/static/base/js/jquery.min.js?v=8101d596b257"></script>
+<script type="text/javascript" src="https://s5.kaoshixing.com/static/plugins/bootstrap/js/bootstrap.min.js?v=87d37353ad57"></script>
+<script type="text/javascript" src="https://s5.kaoshixing.com/static/plugins/bootstrap-dialog.min.js?v=0330ca558b57"></script>
+<script type="text/javascript">
+    
+    var companyId = "163983"; //公司id
+    var exam_info_id = "392980"; //考试ID
+    var exam_results_id = "25428635"; //考试关联ID
+</script>
+<script type="text/javascript" src="https://s0.kaoshixing.com/static/base/js/exam-base.js?v=5bd73e8d4457"></script>
+<script type="text/javascript">
+        //提示弹窗
+        function showSuccessTip(text){
+            $(".ksx-success .text label").text(text);
+            $(".ksx-success").show();
+            $(".ksx-success").fadeOut(3000);
+        }
+        function showErrorTip(text){
+            $(".ksx-error .text label").text(text);
+            $(".ksx-error").show();
+            $(".ksx-error").fadeOut(3000);
+        }
+        function showWarnTip(text){
+            $(".ksx-warn .text label").text(text);
+            $(".ksx-warn").show();
+            $(".ksx-warn").fadeOut(3000);
+        }
+    </script>
+    <script type="text/javascript" src="https://s0.kaoshixing.com/static/plugins/wangEditorExam/js/wangEditor.js?v=5972ed3d5357"></script>
+    <script type="text/javascript" src="https://s5.kaoshixing.com/static/plugins/wangEditorExam/js/uploadFile.js?v=0e4024348957"></script>
+    <script type="text/javascript" src="https://s1.kaoshixing.com/static/plugins/FlashWavRecorder/basic.js?v=b539b56e9957"></script>
+    <script type="text/javascript" src="https://s4.kaoshixing.com/static/plugins/FlashWavRecorder/swfobject.js?v=207b97304f57"></script>
+    <script type="text/javascript" src="https://s1.kaoshixing.com/static/plugins/FlashWavRecorder/recorder.js?v=f8e8a6e16b57"></script>
+    <script type="text/javascript" src="https://s3.kaoshixing.com/static/plugins/stickUp/stickUp.min.js?v=125ba0241757"></script>
+    <script type="text/javascript" src="https://s5.kaoshixing.com/static/plugins/screenfull.js?v=7fc3fa5c1157"></script>
+    <script type="text/javascript" src="https://s1.kaoshixing.com/static/plugins/webcam/jquery.webcam.js?v=fb47d436f357"></script>
+    <script type="text/javascript" src="https://s0.kaoshixing.com/static/exam/js/exam_onebyone.js?v=574791adca57"></script>
+    <script type="text/javascript">
+        //考试计时
+        var timeDownInterval;
+        //考试剩余总时长
+        var answer_time_left = parseInt(2700);
+        //考试消耗时长
+        var consume_time = getCookie("consume_time_"+exam_results_id);
+        //全屏防作弊参数
+        var set_full_screen = "0";
+        var exitSwicthStatus="new"; //new-第一次考试  doing-非第一次考试，会从下列请求获取到该参数，给变量赋值后，再将其作为参数放到请求里。后端需要该参数对第一次进考试时的情况进行处理
+        var switchScreenSecond="5"; //允许切屏时间
+        //切换次数
+        var blur_count="3";
+        var cuttingScreenCount="0"; //已切屏次数
+        //学员id
+        var examUserId = "11315094";
+        //无操作防作弊静止时间
+        var quietSecond = "30";
+        //设置无操作防作弊
+        var setQuietCheat = "1";
+        //拍照防作弊参数
+        var capture="1";
+        //练习模式
+        var practice_mode = "0";
+        var examTimeRestrict = "0";
+        //是否限制每题时长 1是0否
+        var perTimeRestrict = "1";
+        if (perTimeRestrict == '0'){
+            //答题时长（是否不限时长）
+            examTimeRestrict = "";
+        }
+        //限制每题答题时长之后，再次进入考试请求的试题id
+        var currentTestId = '';
+        //是否闯关模式
+        var passMode = 0;
+        //闯关答错次数
+        var errorTimes = "0";
+        //累计答错次数
+        var errorCount = "";
+        //是否显示水印 0--不显示；1--显示
+        var isWatermark = '1';
+        //最短答题时长
+        var setMinExamTime= '0';
+        var minExamTime= '0';
+        var totalExamTime='2700';
+
+        var saveAudioStorge;
+    </script>
+</body>
+</html>
